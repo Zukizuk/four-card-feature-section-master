@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+:root {
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+
+  /* Neutral */
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(229, 6%, 66%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --font-size: 15px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  min-height: 100vh;
+  background: var(--Very-Light-Gray);
+  display: grid;
+  place-items: center;
+  color: var(--Grayish-Blue);
+  font-size: var(--font-size);
+  padding: 100px 0;
+}
+main {
+  min-height: 75%;
+  width: 80%;
+}
+.text {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   margin-bottom: 50px;
+}
+.text h3{
+    text-align: center;
+    font-weight: 200;
+    font-size: 1.6rem;
+}
+.text h1{
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.479rem;
+    color: var(--Very-Dark-Blue);
+}
+.text p {
+    text-align: center;
+    font-weight: 400;
+    font-size: .986em;
+}
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.cards .card {
+    height: 230px;
+    background: white;
+    box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.card::before {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: var(--Cyan);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: inherit;
+}
+.card.red::before {
+    background: var(--Red);
+}
+.card.orange::before {
+    background: var(--Orange);
+}
+.card.blue::before {
+    background: var(--Blue);
+}
+.card h2 {
+    font-weight: 600;
+    color: var(--Very-Dark-Blue);
+}
+.card p {
+    font-weight: 200;
+}
+.card img{
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+}
+@media (min-width: 400px) {
+    body {
+        padding: 30px 100px 100px;
+    }
+    main {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .text h3 {
+        font-size: 2rem;
+    }
+    .text h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+    .text p {
+        width: 32%;
+        margin: 0 auto;
+    }
+    .cards {
+        flex: 1;
+        width: 80%;
+        margin: 0 auto;
+        display: grid;
+        gap: 1.7rem;
+        grid-auto-rows: 1fr;
+        grid-auto-columns: 1fr;
+        grid-template-areas: 
+        '. rred .'
+        'ccyan rred bblue'
+        'ccyan oorange bblue'
+        '. oorange .'
+        ;
+    }
+    
+    .cyan {
+        grid-area: ccyan;
+    }
+    .red {
+        grid-area: rred;
+    }
+    .orange {
+        grid-area: oorange;
+    }
+    .blue {
+        grid-area: bblue;
+    }
+}
+/* footer {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); } */
